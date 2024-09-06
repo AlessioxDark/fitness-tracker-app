@@ -145,3 +145,14 @@ html {
 	width: 100%;
 	height: calc(100vh * 100);
 }
+
+.feature-section {
+	padding-top: 120px;
+}
+.feature-title {
+	text-align: center;
+	font-size: 52px;
+	font-family: 'Montserrat';
+	font-weight: bold;
+	/* margin-bottom: 40px; */
+}
