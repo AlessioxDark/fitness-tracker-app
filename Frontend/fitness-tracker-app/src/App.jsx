@@ -11,7 +11,6 @@ function App() {
 					<Route exact path="/" element={<Homepage />} />
 				</Routes>
 			</BrowserRouter>
-			{/* <Homepage></Homepage> */}
 		</div>
 	);
 }
