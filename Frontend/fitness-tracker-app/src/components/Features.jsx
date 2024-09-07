@@ -25,7 +25,7 @@ export default function Features() {
 					<div className="feature-icon-container">
 						<img src={icon2} alt="" className="feature-icon" />
 					</div>
-					<h1 className="feature-title">Tieni Traccia del Tuo Allenamento</h1>
+					<h1 className="feature-title"> Traccia gli Allenamenti</h1>
 					<div className="feature-desc-container">
 						<p className="feature-desc">
 							{' '}

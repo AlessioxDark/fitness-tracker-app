@@ -1,6 +1,7 @@
 import React from 'react';
 import hero from '../assets/Hero5.png';
 import Features from './Features';
+import Reviews from './Reviews';
 export default function Homepage() {
 	return (
 		<div className="homepage">
@@ -16,6 +17,7 @@ export default function Homepage() {
 				<img src={hero} alt="" className="hero-img" />
 			</div>
 			<Features />
+			<Reviews />
 		</div>
 	);
 }

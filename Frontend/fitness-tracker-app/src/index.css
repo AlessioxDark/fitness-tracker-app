@@ -206,3 +206,56 @@ html {
 	font-family: 'Lato';
 	font-size: 20px;
 }
+
+.next-arrow {
+	transform: rotate(180deg);
+}
+.arrow {
+	height: 100px;
+	width: 100px;
+}
+
+.review-title {
+	margin: 0;
+	font-family: 'Montserrat';
+	font-weight: normal;
+	font-size: 34px;
+	color: #f71c0d;
+}
+.review-desc {
+	font-family: 'Lato';
+	font-size: 20px;
+	position: relative;
+}
+.review-author {
+	font-family: 'Lato';
+	font-style: italic;
+	font-size: 18px;
+	margin-top: auto;
+	width: 100px;
+}
+.review-container {
+	box-sizing: border-box;
+	display: flex;
+	/* align-items: center; */
+	flex-direction: column;
+	padding: 20px;
+	/* display: inline-block; */
+	width: 80%;
+	height: 300px;
+	border: 5px solid #333333;
+}
+.reviews-title {
+	text-align: center;
+	font-family: 'Montserrat';
+	font-weight: bold;
+	color: #f71c0d;
+	font-size: 45px;
+	padding: 40px 0;
+}
+.reviews {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+}
