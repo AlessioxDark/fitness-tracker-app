@@ -251,11 +251,29 @@ html {
 	font-weight: bold;
 	color: #f71c0d;
 	font-size: 45px;
-	padding: 40px 0;
+	padding-top: 160px;
+	padding-bottom: 40px;
 }
 .reviews {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 50px;
+}
+.tab-indicator-container {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+.tab-indicator {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	border: 2px solid #333333;
+}
+.selected-tab {
+	background-color: #f71c0d;
 }
