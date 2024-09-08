@@ -1,4 +1,5 @@
-html {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Lato', sans-serif;
@@ -137,9 +138,6 @@ html {
 }
 
 @media (max-width: 1900px) {
-	.hero-section {
-		justify-content: flex-start;
-	}
 	.hero-img {
 		max-height: 600px;
 		max-width: 700px;
@@ -160,8 +158,6 @@ html {
 .homepage {
 	width: 100%;
 	/* background-color: #333333; */
-
-	height: calc(100vh * 100);
 }
 
 .feature-section {
@@ -226,6 +222,7 @@ html {
 	font-family: 'Lato';
 	font-size: 20px;
 	position: relative;
+	overflow: auto;
 }
 .review-author {
 	font-family: 'Lato';
@@ -267,13 +264,37 @@ html {
 	align-items: center;
 	justify-content: center;
 	gap: 20px;
+	margin-bottom: 100px;
 }
 .tab-indicator {
-	height: 20px;
-	width: 20px;
+	box-sizing: border-box;
+	height: 17px;
+	width: 17px;
 	border-radius: 50%;
 	border: 2px solid #333333;
 }
 .selected-tab {
 	background-color: #f71c0d;
+	border: none;
+}
+.footer {
+	background-color: #333333;
+	padding: 20px;
+	color: #ffffff;
+	text-align: center;
+	height: 150px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.footer-copyright {
+	border-width: 100px;
+
+	box-sizing: content-box;
+	/* box-sizing: border-box; */
+}
+.footer-list {
+	display: flex;
+	justify-content: space-around;
+	gap: 20px;
+	list-style-type: none;
 }
