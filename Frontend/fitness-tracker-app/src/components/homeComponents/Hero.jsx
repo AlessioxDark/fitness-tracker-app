@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../assets/Hero5.png';
+import hero from '../../assets/homepage/Hero5.png';
 export default function Hero() {
 	return (
 		<div className="hero-section">

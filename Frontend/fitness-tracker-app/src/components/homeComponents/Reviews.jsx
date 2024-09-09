@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import arrow from '../assets/arrow.png';
+import arrow from '../../assets/homepage/arrow.png';
 export default function Reviews() {
 	const reviews = [
 		{
@@ -83,6 +83,7 @@ export default function Reviews() {
 				{reviews.map((review, rIndex) => {
 					return (
 						<div
+							key={rIndex}
 							className={`tab-indicator ${
 								rIndex == index ? 'selected-tab' : ''
 							}`}

@@ -1,7 +1,7 @@
 import React from 'react';
-import icon1 from '../assets/icons/apple.png';
-import icon2 from '../assets/icons/exercise.png';
-import icon3 from '../assets/icons/goal.png';
+import icon1 from '../../assets/homepage/icons/apple.png';
+import icon2 from '../../assets/homepage/icons/exercise.png';
+import icon3 from '../../assets/homepage/icons/goal.png';
 export default function Features() {
 	return (
 		<div className="feature-section">

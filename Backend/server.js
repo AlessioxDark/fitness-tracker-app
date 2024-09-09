@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+const authRouter = require('./routes/auth');
 app.use(
 	cors({
 		origin: 'http://localhost:3000', // Specifica il dominio da cui accettare le richieste
@@ -10,5 +10,6 @@ app.use(
 	})
 );
 app.use(express.json());
+app.use(authRouter, '/api/auth');
 app.get('/', (req, res) => {});
 app.listen(5000);
