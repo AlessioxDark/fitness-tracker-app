@@ -311,7 +311,8 @@ body {
 	cursor: pointer;
 	transition: color 0.3s ease;
 }
-.register {
+.register,
+.login {
 	/* padding: 0px; */
 	min-height: 80vh;
 	display: flex;
@@ -322,14 +323,16 @@ body {
 	box-sizing: border-box;
 }
 
-.register-title {
+.register-title,
+.login-title {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 50px;
 	color: #f71c0d;
 }
 
-.register-form-container {
+.register-form-container,
+.login-form-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -337,7 +340,8 @@ body {
 	max-width: 1500px;
 }
 
-.register-form {
+.register-form,
+.login-form {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -345,13 +349,15 @@ body {
 	gap: 25px;
 }
 
-.register-form-field {
+.register-form-field,
+.login-form-field {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 }
 
-.register-label {
+.register-label,
+.login-label {
 	display: block;
 	font-family: 'Lato', sans-serif;
 	font-size: 25px;
@@ -360,7 +366,8 @@ body {
 	margin-bottom: 10px;
 }
 
-.register-input {
+.register-input,
+.login-input {
 	width: 100%;
 	height: 46px;
 	padding: 15px;
@@ -372,12 +379,14 @@ body {
 	outline: none;
 }
 
-.register-input:focus {
+.register-input:focus,
+.login-input:focus {
 	border-color: #f71c0d;
 	box-shadow: 0px 0px 8px rgba(247, 28, 13, 0.2);
 }
 
-.register-input:hover {
+.register-input:hover,
+.login-input:hover {
 	border-color: #d1180b;
 }
 
@@ -388,13 +397,15 @@ body {
 	padding-left: 10px;
 }
 
-.register-btn-container {
+.register-btn-container,
+.login-btn-container {
 	display: flex;
 	justify-content: center;
 	margin-top: 20px;
 }
 
-.register-btn {
+.register-btn,
+.login-btn {
 	background-color: #f71c0d;
 	color: white;
 	width: 400px;
@@ -408,13 +419,15 @@ body {
 	transition: background-color 0.3s ease;
 }
 
-.register-btn:hover {
+.register-btn:hover,
+.login-btn:hover {
 	background-color: #d1180b;
 	transform: scale(1.05);
 	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.register p {
+.register p,
+.login p {
 	text-align: left;
 	font-family: 'Lato', sans-serif;
 	font-size: 21px;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Homepage from './components/homepage';
@@ -16,6 +17,7 @@ function App() {
 					<Route exact path="/nutrition" element={''} />
 					<Route exact path="/support" element={''} />
 					<Route exact path="/register" element={<Register />} />
+					<Route exact path="/login" element={<Login />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>
