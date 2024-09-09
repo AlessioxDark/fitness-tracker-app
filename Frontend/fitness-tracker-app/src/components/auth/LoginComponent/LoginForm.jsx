@@ -52,6 +52,7 @@ export default function LoginForm() {
 						id="email"
 						value={formData.email}
 						onChange={updateFormData}
+						required
 					/>
 				</div>
 				<div className="login-form-field">
@@ -66,6 +67,7 @@ export default function LoginForm() {
 						id="password"
 						value={formData.password}
 						onChange={updateFormData}
+						required
 					/>
 				</div>
 

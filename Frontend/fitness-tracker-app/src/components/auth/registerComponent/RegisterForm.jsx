@@ -67,6 +67,7 @@ export default function RegisterForm() {
 						id="email"
 						value={formData.email}
 						onChange={updateFormData}
+						required
 					/>
 				</div>
 				<div className="register-form-field">
@@ -81,11 +82,13 @@ export default function RegisterForm() {
 						id="password"
 						value={formData.password}
 						onChange={updateFormData}
+						required
 					/>
 				</div>
 				<div className="register-form-field-checkbox">
 					<input
 						type="checkbox"
+						required
 						className="register-input-checkbox"
 						name="terms"
 						id="terms"
