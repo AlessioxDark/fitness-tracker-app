@@ -10,6 +10,6 @@ app.use(
 	})
 );
 app.use(express.json());
-app.use(authRouter, '/api/auth');
+app.use('/api/auth', authRouter);
 app.get('/', (req, res) => {});
 app.listen(5000);

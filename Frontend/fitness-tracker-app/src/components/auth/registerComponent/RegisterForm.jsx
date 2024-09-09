@@ -16,8 +16,27 @@ export default function RegisterForm() {
 		});
 	}
 
-	function submitData() {
-		fetch('https://localhost:5000/api/auth/register', { method: 'POST' });
+	async function submitData(e) {
+		e.preventDefault(); // Prevent form submission
+		try {
+			// Esegui la richiesta POST al backend per la registrazione dell'utente
+			const response = await fetch('http://localhost:5000/api/auth/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			if (!response.ok) {
+				throw new Error('Registrazione fallita: ' + response.statusText);
+			}
+			const data = await response.json();
+			localStorage.setItem('token', JSON.stringify(data.token));
+			console.log('Registrazione completata con successo:', data);
+		} catch (error) {
+			console.error('Errore durante la registrazione:', error);
+		}
 	}
 	return (
 		<div className="register-form-container">
