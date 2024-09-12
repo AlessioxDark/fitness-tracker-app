@@ -359,7 +359,7 @@ body {
 .register-label,
 .login-label {
 	display: block;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 25px;
 
 	color: #000000;
@@ -383,11 +383,6 @@ body {
 .login-input:focus {
 	border-color: #f71c0d;
 	box-shadow: 0px 0px 8px rgba(247, 28, 13, 0.2);
-}
-
-.register-input:hover,
-.login-input:hover {
-	border-color: #d1180b;
 }
 
 .register-checkbox-text {
@@ -516,8 +511,9 @@ body {
 .add-workout-form-label {
 	display: block;
 	font-family: 'Montserrat';
-	font-weight: bold;
-	font-size: 30px;
+	font-weight: 600;
+	font-size: 26px;
+	padding-bottom: 5px;
 	color: #000000;
 }
 .add-workout-form-input {
@@ -529,11 +525,130 @@ body {
 	font-weight: normal;
 	/* border: none; */
 	border-radius: 4px;
+	border: 2px solid #333333;
+	color: #333333;
+	border-radius: 15px;
+	outline: none;
 	/* margin-bottom: 10px; */
 	margin-bottom: 20px;
+}
+.add-workout-form-input:focus {
+	border-color: #f71c0d; /* Bordo rosso quando l'input è attivo */
+	box-shadow: 0px 0px 8px rgba(247, 28, 13, 0.2); /* Ombra rosso chiaro per l'input attivo */
 }
 .add-workout-dialog-content {
 	width: 70vw;
 	height: 85vh;
+	border: none;
+	outline: none;
 	/* padding: 30px; */
+}
+.remove-exercise-button,
+.add-exercise-button {
+	background-color: #f71c0d;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	font-family: 'Montserrat';
+	font-weight: bold;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.add-exercise-button {
+	margin-top: 20px;
+	width: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+	font-size: 42px;
+}
+
+.add-btn-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-workout-send-btn {
+	background-color: #f71c0d;
+	color: white;
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 20px;
+	height: 70px;
+	border-radius: 10px;
+	border: none;
+	width: 500px;
+	font-family: 'Montserrat';
+	font-weight: bold;
+}
+.add-workout-reset-btn {
+	background-color: #f71c0d;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: none;
+	width: 250px;
+}
+
+.register-input:focus,
+.login-input:focus {
+	border-color: #f71c0d;
+	box-shadow: 0px 0px 8px rgba(247, 28, 13, 0.2);
+}
+
+.add-misc-btn-container {
+	margin-top: 30px;
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	gap: 35px;
+}
+.exercise-title {
+	display: inline;
+	font-family: 'Montserrat';
+	font-weight: 600;
+	font-size: 34px;
+	color: #f71c0d;
+}
+.first-exercise-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.main-add-workout-title {
+	display: inline;
+	margin: 0;
+	color: #f71c0d;
+	font-family: 'Montserrat';
+	font-size: 45px;
+	font-weight: bold;
+}
+.title-btn-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 25px;
+	height: 60px; /* Assicurati che il contenitore abbia l'altezza desiderata */
+}
+
+.add-misc-btn-container {
+	display: flex;
+	gap: 70px; /* Spazio tra le icone */
+	align-items: center; /* Allinea le icone verticalmente */
+	margin: 0;
+}
+.exercise-label {
+	font-size: 23px;
+	font-weight: 500;
+}
+.workout-page {
+	width: 70vw;
+	height: 85vh;
+	border: none;
+	outline: none;
 }

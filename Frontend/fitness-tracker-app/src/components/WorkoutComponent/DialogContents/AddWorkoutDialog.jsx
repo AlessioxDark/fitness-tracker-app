@@ -1,5 +1,7 @@
+import { faCheck, faPlus, faX, fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
-export default function AddWorkoutDialog() {
+export default function AddWorkoutDialog({ toggleDialog }) {
 	const [workout, setWorkout] = useState({
 		name: '',
 		desc: '',
@@ -44,14 +46,6 @@ export default function AddWorkoutDialog() {
 		}));
 	}
 
-	function handleReset(e) {
-		e.preventDefault();
-		setWorkout({
-			name: '',
-			desc: '',
-			exercises: [{ name: '', sets: '', reps: '' }],
-		});
-	}
 	function handleSubmit(e) {
 		e.preventDefault();
 		const token = localStorage.getItem('token');
@@ -68,10 +62,26 @@ export default function AddWorkoutDialog() {
 		})
 			.then((data) => data.json())
 			.then((res) => console.log(res));
+		setWorkout({
+			name: '',
+			desc: '',
+			exercises: [{ name: '', sets: '', reps: '' }],
+			last: '',
+		});
+		toggleDialog(); // Close the dialog after submission
 	}
 	return (
 		<div className="add-workout-dialog-content">
-			<h1>Inserisci i dati della tua scheda di allenamento</h1>
+			<div className="title-btn-container">
+				<h1 className="main-add-workout-title">Crea la tua Scheda</h1>
+				<div className="add-misc-btn-container">
+					<FontAwesomeIcon
+						icon={faX}
+						style={{ color: 'red', fontSize: '52px' }}
+						onClick={toggleDialog}
+					/>
+				</div>
+			</div>
 			<form action="" onSubmit={handleSubmit} className="add-workout-form">
 				<div className="add-workout-form-field">
 					<label className="add-workout-form-label" htmlFor="workout_name">
@@ -79,6 +89,7 @@ export default function AddWorkoutDialog() {
 					</label>
 					<input
 						className="add-workout-form-input"
+						required
 						type="text"
 						name="name"
 						id="workout_name"
@@ -92,6 +103,7 @@ export default function AddWorkoutDialog() {
 					</label>
 					<input
 						className="add-workout-form-input"
+						required
 						type="text"
 						id="workout_desc"
 						name="desc"
@@ -105,6 +117,7 @@ export default function AddWorkoutDialog() {
 					</label>
 					<input
 						className="add-workout-form-input"
+						required
 						type="time"
 						id="workout_last"
 						name="last"
@@ -116,8 +129,21 @@ export default function AddWorkoutDialog() {
 					{workout.exercises.map((exercise, index) => {
 						return (
 							<div className={'add-workout-exercise'} key={index}>
-								<h1>Exercise {index + 1}</h1>
-								<label htmlFor={`exercise-name-${index}`}>Exercise Name</label>
+								<div className="first-exercise-section">
+									<h1 className="exercise-title">Exercise {index + 1}</h1>
+									<button
+										className="remove-exercise-button"
+										onClick={(e) => removeExercise(e, index)}
+									>
+										Remove Exercise
+									</button>
+								</div>
+								<label
+									htmlFor={`exercise-name-${index}`}
+									className="add-workout-form-label exercise-label"
+								>
+									Exercise Name
+								</label>
 								<input
 									type="text"
 									name={`name`}
@@ -125,42 +151,60 @@ export default function AddWorkoutDialog() {
 									value={exercise.name}
 									onChange={(e) => handleWorkoutChange(e, index)}
 									className="add-workout-form-input"
+									required
 								/>
-								<label htmlFor={`exercise-sets-${index}`}>Exercise Sets</label>
+								<label
+									htmlFor={`exercise-sets-${index}`}
+									className="add-workout-form-label exercise-label"
+								>
+									Exercise Sets
+								</label>
 								<input
 									type="number"
 									name={`sets`}
 									id={`exercise-sets-${index}`}
 									value={exercise.sets}
 									onChange={(e) => handleWorkoutChange(e, index)}
+									min={1}
 									className="add-workout-form-input"
+									required
 								/>
-								<label htmlFor={`exercise-reps-${index}`}>Exercise Reps</label>
+								<label
+									htmlFor={`exercise-reps-${index}`}
+									className="add-workout-form-label exercise-label"
+								>
+									Exercise Reps
+								</label>
 								<input
 									type="number"
 									name={`reps`}
 									id={`exercise-reps-${index}`}
 									value={exercise.reps}
+									min={1}
 									onChange={(e) => handleWorkoutChange(e, index)}
 									className="add-workout-form-input"
+									required
 								/>
-								<button onClick={(e) => removeExercise(e, index)}>
-									Remove Exercise
-								</button>
 							</div>
 						);
 					})}
 				</div>
-				<button
-					onClick={(e) => {
-						e.preventDefault();
-						addExercise();
-					}}
-				>
-					Aggiungi esercizio
-				</button>
-				<button onClick={handleReset}>Resetta</button>
-				<button type="submit">Invia</button>
+				<div className="add-btn-container">
+					<button
+						className="add-exercise-button"
+						onClick={(e) => {
+							e.preventDefault();
+							addExercise();
+						}}
+					>
+						<FontAwesomeIcon icon={faPlus} />
+					</button>
+				</div>
+				<div className="add-btn-container" style={{ marginTop: '100px' }}>
+					<button className="add-workout-send-btn" type="submit">
+						Invia
+					</button>
+				</div>
 			</form>
 		</div>
 	);
