@@ -31,8 +31,9 @@ export default function LoginForm() {
 				throw new Error('Registrazione fallita: ' + response.statusText);
 			}
 			const data = await response.json();
-
-			console.log('Registrazione completata con successo:', data);
+			localStorage.setItem('token', data.token);
+			console.log(data.token);
+			console.log('Registrazione completata con successo:', data.token);
 		} catch (error) {
 			console.error('Errore durante la registrazione:', error);
 		}

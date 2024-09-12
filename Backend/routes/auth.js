@@ -53,6 +53,7 @@ router.post('/login', async (req, res) => {
 		const token = jwt.sign({ userId: user.id }, JWT_SECRET_KEY, {
 			expiresIn: '1d',
 		});
+		console.log(token);
 		res
 			.status(200)
 			.json({ message: 'Login Successful', token: token, success: true });
@@ -61,37 +62,5 @@ router.post('/login', async (req, res) => {
 		res.status(500).json({ message: 'Internal server Error', success: false });
 	}
 });
-
-// router.post('/login', async (req, res) => {
-// 	try {
-// 		const { email, password } = req.body;
-
-// 		// Hash della password
-
-// 		// Query per inserire l'utente
-// 		const insertQuery = `
-// 			SELECT id,password FROM users WHERE email = $1
-// 		`;
-// 		const values = [email];
-// 		const result = await client.query(insertQuery, values);
-// 		const user = result.rows[0];
-// 		const isMatch = await bcrypt.compare(password, user.password);
-// 		console.log(isMatch);
-// 		if (!isMatch) {
-// 			// Password non corretta
-// 			return res.status(401).json({ error: 'Invalid username or password' });
-// 		}
-
-// 		const token = jwt.sign({ userId: user.id }, JWT_SECRET_KEY, {
-// 			expiresIn: '1d',
-// 		});
-// 		res
-// 			.status(200)
-// 			.json({ message: 'User registered successfully', token: token });
-// 	} catch (err) {
-// 		console.error(err);
-// 		res.status(500).json({ error: 'Internal Server Error' });
-// 	}
-// });
 
 module.exports = router;

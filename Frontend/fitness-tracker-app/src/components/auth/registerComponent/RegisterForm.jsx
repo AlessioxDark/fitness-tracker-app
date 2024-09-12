@@ -32,7 +32,7 @@ export default function RegisterForm() {
 				throw new Error('Registrazione fallita: ' + response.statusText);
 			}
 			const data = await response.json();
-			localStorage.setItem('token', JSON.stringify(data.token));
+
 			console.log('Registrazione completata con successo:', data);
 		} catch (error) {
 			console.error('Errore durante la registrazione:', error);
