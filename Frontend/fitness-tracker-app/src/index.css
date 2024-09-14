@@ -646,9 +646,30 @@ body {
 	font-size: 23px;
 	font-weight: 500;
 }
-.workout-page {
+.workout-card-dialog {
 	width: 70vw;
 	height: 85vh;
 	border: none;
 	outline: none;
+}
+.color-form-field {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 30px;
+	margin-bottom: 20px;
+}
+.color-input {
+	border: none;
+	padding: 0;
+	background: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+.color-label {
+	display: inline;
 }

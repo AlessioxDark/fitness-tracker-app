@@ -1,17 +1,13 @@
 import { default as React, useEffect, useRef, useState } from 'react';
 import AddWorkoutDialog from './DialogContents/AddWorkoutDialog';
-import WorkoutCard from './WorkoutCard';
+import WorkoutCardDialog from './DialogContents/WorkoutCardDialog';
 export default function MyWorkouts() {
 	const [workoutData, setWorkoutData] = useState(null);
 	const [dialogContent, setDialogContent] = useState(null);
 	const dialogRef = useRef(null);
-
 	useEffect(() => {
-		fetch('http://localhost:5000/api/workouts')
-			.then((res) => res.json())
-			.then((data) => console.log(data));
-		// setWorkoutData((response) => response.json());
-	});
+		fetchWorkouts();
+	}, []);
 	function toggleDialog() {
 		if (!dialogRef.current) {
 			return;
@@ -21,7 +17,25 @@ export default function MyWorkouts() {
 			: dialogRef.current.showModal();
 	}
 
-	function fetchWorkouts() {}
+	async function fetchWorkouts() {
+		try {
+			const token = localStorage.getItem('token');
+			const response = await fetch('http://localhost:5000/api/workouts', {
+				method: 'GET',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+			const data = await response.json();
+
+			setWorkoutData(data.data);
+			if (!response.ok) {
+				console.log('error with fetching workouts');
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	}
 	return (
 		<div className="my-workouts">
 			<h1 className="my-workouts-title">My Workouts</h1>
@@ -41,22 +55,22 @@ export default function MyWorkouts() {
 				>
 					{dialogContent}
 				</dialog>
-				<WorkoutCard
-					toggleDialog={toggleDialog}
-					setDialogContent={setDialogContent}
-				/>
-				<WorkoutCard
-					toggleDialog={toggleDialog}
-					setDialogContent={setDialogContent}
-				/>
-				<WorkoutCard
-					toggleDialog={toggleDialog}
-					setDialogContent={setDialogContent}
-				/>
-				<WorkoutCard
-					toggleDialog={toggleDialog}
-					setDialogContent={setDialogContent}
-				/>
+				{workoutData &&
+					workoutData.map((workout, index) => {
+						return (
+							<div
+								key={index}
+								className="workout-card"
+								style={{ backgroundColor: `${workout.workout_data.color}` }}
+								onClick={() => {
+									setDialogContent(<WorkoutCardDialog data={workout} />);
+									toggleDialog();
+								}}
+							>
+								{workout.workout_data.name}
+							</div>
+						);
+					})}
 			</div>
 		</div>
 	);

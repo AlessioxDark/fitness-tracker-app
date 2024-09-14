@@ -7,6 +7,7 @@ export default function AddWorkoutDialog({ toggleDialog }) {
 		desc: '',
 		exercises: [{ name: '', sets: '', reps: '' }],
 		last: '',
+		color: '#000000',
 	});
 	function handleWorkoutChange(e, index) {
 		const { name, value } = e.target;
@@ -94,6 +95,23 @@ export default function AddWorkoutDialog({ toggleDialog }) {
 						name="name"
 						id="workout_name"
 						value={workout.name}
+						onChange={handleWorkoutChange}
+					/>
+				</div>
+				<div className="add-workout-form-field color-form-field">
+					<label
+						className="add-workout-form-label color-label"
+						htmlFor="workout_color"
+					>
+						Colore Allenamento
+					</label>
+					<input
+						className=" color-input"
+						required
+						type="color"
+						name="color"
+						id="workout_color"
+						value={workout.color}
 						onChange={handleWorkoutChange}
 					/>
 				</div>
