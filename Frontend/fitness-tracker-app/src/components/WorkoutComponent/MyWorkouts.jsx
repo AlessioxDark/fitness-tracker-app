@@ -67,7 +67,7 @@ export default function MyWorkouts() {
 									toggleDialog();
 								}}
 							>
-								{workout.workout_data.name}
+								<h1 className="card-title">{workout.workout_data.name}</h1>
 							</div>
 						);
 					})}

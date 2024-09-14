@@ -5,7 +5,7 @@ export default function AddWorkoutDialog({ toggleDialog }) {
 	const [workout, setWorkout] = useState({
 		name: '',
 		desc: '',
-		exercises: [{ name: '', sets: '', reps: '' }],
+		exercises: [{ name: '', sets: '', reps: '', weight: 0, notes: '' }],
 		last: '',
 		color: '#000000',
 	});
@@ -33,7 +33,10 @@ export default function AddWorkoutDialog({ toggleDialog }) {
 	function addExercise() {
 		setWorkout((prevWorkout) => ({
 			...prevWorkout,
-			exercises: [...prevWorkout.exercises, { name: '', sets: '', reps: '' }],
+			exercises: [
+				...prevWorkout.exercises,
+				{ name: '', sets: '', reps: '', weight: 0, notes: '' },
+			],
 		}));
 	}
 	function removeExercise(e, index) {
@@ -66,7 +69,7 @@ export default function AddWorkoutDialog({ toggleDialog }) {
 		setWorkout({
 			name: '',
 			desc: '',
-			exercises: [{ name: '', sets: '', reps: '' }],
+			exercises: [{ name: '', sets: '', reps: '', weight: 0, notes: '' }],
 			last: '',
 		});
 		toggleDialog(); // Close the dialog after submission
@@ -202,6 +205,37 @@ export default function AddWorkoutDialog({ toggleDialog }) {
 									onChange={(e) => handleWorkoutChange(e, index)}
 									className="add-workout-form-input"
 									required
+								/>
+								<label
+									htmlFor={`exercise-weight-${index}`}
+									className="add-workout-form-label exercise-label"
+								>
+									Exercise Weight
+								</label>
+								<input
+									type="number"
+									name={`weight`}
+									id={`exercise-weight-${index}`}
+									value={exercise.weight}
+									min={1}
+									onChange={(e) => handleWorkoutChange(e, index)}
+									className="add-workout-form-input"
+									required
+								/>
+								<span>Kg</span>
+								<label
+									htmlFor={`exercise-notes-${index}`}
+									className="add-workout-form-label exercise-label"
+								>
+									Notes
+								</label>
+								<input
+									type="text"
+									name={`notes`}
+									id={`exercise-notes-${index}`}
+									value={exercise.notes}
+									onChange={(e) => handleWorkoutChange(e, index)}
+									className="add-workout-form-input"
 								/>
 							</div>
 						);

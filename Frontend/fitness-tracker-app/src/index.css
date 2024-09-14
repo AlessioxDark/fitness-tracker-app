@@ -647,8 +647,9 @@ body {
 	font-weight: 500;
 }
 .workout-card-dialog {
-	width: 70vw;
+	width: 30vw;
 	height: 85vh;
+	padding: 0 30px;
 	border: none;
 	outline: none;
 }
@@ -672,4 +673,44 @@ body {
 }
 .color-label {
 	display: inline;
+}
+.workout-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.card-title {
+	font-family: 'Montserrat';
+	font-size: 40px;
+	font-weight: bold;
+}
+.workout-card-title {
+	font-family: 'Montserrat';
+	font-weight: bold;
+	font-size: 50px;
+}
+.workout-card-exercise-text {
+	font-size: 21px;
+	margin-bottom: 10px;
+	font-family: 'Lato';
+}
+.workout-exercises-list {
+	list-style-type: numbers;
+}
+.workout-card-exercise-table {
+	border: 2px solid #333333;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+}
+.workout-card-exercise-table-heading {
+	font-family: 'Montserrat';
+}
+.workout-card-exercise-table-cell {
+	font-family: 'Lato';
+	text-align: center;
+}
+.workout-card-exercise-table-cell,
+.workout-card-exercise-table-heading {
+	border: 1px solid #333333;
 }
